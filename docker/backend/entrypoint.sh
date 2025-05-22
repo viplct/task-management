@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "⏳ Waiting for MySQL..."
+wait-for-it.sh mysql:3306 --timeout=60 --strict -- echo "✅ MySQL is up!"
+
 php artisan config:cache
 php artisan route:cache
 

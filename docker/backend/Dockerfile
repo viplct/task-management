@@ -13,8 +13,10 @@ WORKDIR /var/www/html
 COPY ./backend /var/www/html
 
 COPY ./docker/backend/entrypoint.sh /usr/local/bin/entrypoint.sh
-
 RUN chmod +x /usr/local/bin/entrypoint.sh
+
+COPY ./docker/backend/wait-for-it.sh /usr/local/bin/wait-for-it.sh
+RUN chmod +x /usr/local/bin/wait-for-it.sh
 
 RUN composer install
 
