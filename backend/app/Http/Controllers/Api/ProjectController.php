@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
         return ProjectResource::collection(
-            Auth::user()?->projects()->latest()->get()
+            Auth::user()?->projects()->withCount('tasks')->latest()->get()
         );
     }
 
