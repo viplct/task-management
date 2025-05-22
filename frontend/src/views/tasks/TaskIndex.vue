@@ -62,6 +62,10 @@
       </div>
     </Draggable>
 
+    <p v-if="tasks.length === 0" class="text-gray-500 text-sm text-center mt-4">
+      No tasks found.
+    </p>
+
     <TaskFormModal
         v-if="formVisible"
         :task="selectedTask"
