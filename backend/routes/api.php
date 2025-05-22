@@ -14,4 +14,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/user', fn (Request $request) => $request->user());
     Route::apiResource('projects', ProjectController::class);
     Route::apiResource('tasks', TaskController::class);
+    Route::get('/projects/{project}/tasks', [TaskController::class, 'byProject']);
+    Route::post('/projects/{project}/tasks/reorder', [TaskController::class, 'reorder']);
 });

@@ -33,9 +33,20 @@
           </div>
         </div>
 
-        <div class="flex gap-2 justify-end mt-4">
-          <button @click="openForm(project)" class="text-blue-600">Edit</button>
-          <button @click="destroy(project.id)" class="text-red-600">Delete</button>
+        <div class="flex items-center justify-between mt-4">
+          <!-- 👈 Left-aligned Add Task -->
+          <button
+              @click="goToTasks(project)"
+              class="text-green-600 hover:underline text-sm"
+          >
+            View Task
+          </button>
+
+          <!-- 👉 Right-aligned Edit/Delete -->
+          <div class="flex gap-2">
+            <button @click="openForm(project)" class="text-blue-600">Edit</button>
+            <button @click="destroy(project.id)" class="text-red-600">Delete</button>
+          </div>
         </div>
       </div>
     </div>
@@ -55,11 +66,17 @@ import api from '@/plugins/axios'
 import { useToast } from 'vue-toastification'
 import DashboardLayout from '@/layouts/DashboardLayout.vue'
 import ProjectFormModal from '@/components/modals/ProjectFormModal.vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const toast = useToast()
 const projects = ref([])
 const formVisible = ref(false)
 const selectedProject = ref(null)
+
+const goToTasks = (project) => {
+  router.push(`/projects/${project.id}/tasks`)
+}
 
 const fetchProjects = async () => {
   const { data } = await api.get('/projects')

@@ -3,6 +3,7 @@ import Login from '@/views/Login.vue'
 import Register from '@/views/Register.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import ProjectIndex from "@/views/projects/ProjectIndex.vue";
+import TaskIndex from "@/views/tasks/TaskIndex.vue";
 
 const routes = [
     { path: '/', redirect: '/login' }, // 🔥 redirect root to login
@@ -10,6 +11,7 @@ const routes = [
     { path: '/register', component: Register },
     { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
     { path: '/projects', component: ProjectIndex, meta: { requiresAuth: true } },
+    { path: '/projects/:projectId/tasks', component: TaskIndex, meta: { requiresAuth: true } },
 ]
 
 const router = createRouter({

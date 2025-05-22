@@ -13,7 +13,6 @@
         <nav class="space-y-2">
           <router-link to="/dashboard" class="block hover:text-gray-300">Dashboard</router-link>
           <router-link to="/projects" class="block hover:text-gray-300">Projects</router-link>
-          <router-link to="/tasks" class="block hover:text-gray-300">Tasks</router-link>
           <button @click="logout" class="mt-4 text-sm text-red-400 hover:text-red-300">Logout</button>
         </nav>
       </div>
