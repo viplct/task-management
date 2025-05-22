@@ -17,6 +17,6 @@ const projectCount = ref(0)
 
 onMounted(async () => {
   const { data } = await api.get('/projects')
-  projectCount.value = data.length
+  projectCount.value = data?.data?.length ?? 0
 })
 </script>
